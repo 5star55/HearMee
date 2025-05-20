@@ -767,6 +767,21 @@ label{
         width: 45% !important;
     }
 }
-.middle{
-    margin-left: 350px;
+html, body {
+  height: 100%;
+  margin: 0;
 }
+
+.middle {
+  display: flex;
+  flex-direction: column; /* stack content1 blocks vertically */
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  height: 100vh;           /* full height of viewport */
+  text-align: center;      /* optional: center text */
+}
+
+.content1 {
+  margin: 10px 0;
+}
+
