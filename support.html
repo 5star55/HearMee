@@ -8,6 +8,93 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>HearME</title>
+
+    <style>
+        /* Base styles for desktop and larger screens */
+/* (Assuming these exist in your style.css) */
+
+/* Responsive adjustments for mobile devices */
+@media only screen and (max-width: 768px) {
+  
+  /* Adjust header: stack logo and nav vertically */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hide desktop nav and show hamburger menu */
+  nav ul#nav {
+    display: none;
+  }
+
+  #ham {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  #cancel {
+    display: none; /* Initially hidden, toggle with JS */
+  }
+
+  /* Banner text smaller and centered */
+  .banner h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .banner h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .banner p {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Service section stacked */
+  .outer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 1rem;
+  }
+
+  /* Target cards stacked vertically */
+  .target-set {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 1rem;
+  }
+
+  /* Form inputs full width */
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  /* Footer social icons spacing */
+  footer .social a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+  }
+
+  /* Reduce padding/margins globally if needed */
+  body, section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+    </style>
 </head>
 <body>
     <header>
