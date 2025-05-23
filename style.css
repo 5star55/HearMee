@@ -682,7 +682,6 @@ label{
     }
 
     #nav {
-        display: none;
         flex-direction: column;
         width: 100%;
         padding: 0;
