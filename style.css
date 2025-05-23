@@ -738,10 +738,6 @@ label{
 
 /* Large devices (desktops, 1024px and up) */
 @media (min-width: 1024px) {
-    #ham, #cancel {
-        display: none;
-    }
-
     nav ul {
         display: flex !important;
         flex-direction: row;
