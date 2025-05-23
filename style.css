@@ -871,7 +871,32 @@ html, body {
 }
 * {
   box-sizing: border-box;
+}.about-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* Stack vertically */
+    text-align: center;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .about-text {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
 
 img {
   max-width: 100%;
@@ -882,4 +907,5 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 
