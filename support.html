@@ -1,259 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/all.min.css">
-    <link rel="stylesheet" href="fontawesome-free-6.5.1-web/css/fontawesome.min.css ">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>HearME</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HearME - Help & Support</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+    <style>/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    <style>
-        /* Base styles for desktop and larger screens */
-/* (Assuming these exist in your style.css) */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+}
 
-/* Responsive adjustments for mobile devices */
-@media only screen and (max-width: 768px) {
-  *{
-  font-size: 10px;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+header {
+  background: #004080;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav {
+  position: relative;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  color: #ffd700;
+}
+
+/* Hamburger and Cancel Buttons */
+#ham,
+#cancel {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  padding: 0 1rem;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  background: #e6f0ff;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner h2 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #444;
+}
+
+/* Services */
+.service {
+  padding-bottom: 3rem;
+}
+
+.service h1,
+.target h1,
+.reach h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.service h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.outer {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.inform {
+  background: #f8f9fa;
+  flex: 1 1 45%;
+  min-width: 280px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.inform h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #004080;
+}
+
+/* Target Section */
+.target p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.target-set {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.target-card {
+  background: #f1f4f8;
+  border-radius: 10px;
+  padding: 1rem;
+  flex: 1 1 30%;
+  min-width: 260px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.target-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.target-card h3 {
+  margin: 0 0 0.5rem;
+  color: #004080;
+}
+
+/* Contact Form */
+.reach {
+  padding-bottom: 4rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+}
+
+.sub {
+  background: #004080;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sub:hover {
+  background: #003366;
+}
+
+/* Contact & About Sections */
+.close {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 1rem;
+  background: #004080;
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.close .contact {
+  min-width: 220px;
+}
+
+.close h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.close a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.close a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #00264d;
+  color: #ccc;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+footer .social {
+  margin-bottom: 1rem;
+}
+
+footer .social a {
+  margin: 0 0.5rem;
+  color: #ccc;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+footer .social a:hover {
+  color: #ffd700;
+}
+
+footer p a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
   }
-  /* Adjust header: stack logo and nav vertically */
-  header {
-    display: flex;
+
+  /* Hide nav on small screens */
+  nav ul#nav {
+    display: none;
     flex-direction: column;
-    align-items: center;
+    background: #004080;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  nav ul#nav.show {
+    display: flex;
+  }
+
+  nav ul#nav li {
+    margin: 0;
+  }
+
+  nav ul#nav li a {
+    padding: 1rem;
+    display: block;
+    border-bottom: 1px solid #003366;
   }
 
   #ham {
     display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    margin-top: 10px;
   }
 
   #cancel {
-    display: none; /* Initially hidden, toggle with JS */
+    display: none;
   }
 
-  /* Banner text smaller and centered */
+  /* Banner smaller text */
   .banner h1 {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 1.8rem;
   }
 
   .banner h2 {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: 1.1rem;
   }
 
   .banner p {
     font-size: 1rem;
-    text-align: center;
-    padding: 0 1rem;
   }
 
-  /* Service section stacked */
+  /* Stack service cards vertically */
   .outer {
-    display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 0 1rem;
-  }
-
-  /* Target cards stacked vertically */
-  .target-set {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 1rem;
-  }
-
-  /* Form inputs full width */
-  form input[type="text"],
-  form input[type="email"],
-  form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-  }
-
-  /* Footer social icons spacing */
-  footer .social a {
-    margin: 0 10px;
-    font-size: 1.5rem;
-  }
-
-  /* Reduce padding/margins globally if needed */
-  body, section {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .outer {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    padding: 0 1.5rem;
+    gap: 1.5rem;
   }
 
   .inform {
-    width: 100%;          /* Full width */
-    padding: 20px;        /* More padding for touch comfort */
-    box-sizing: border-box;
-    font-size: 1.1rem;    /* Slightly bigger text */
-    line-height: 1.5;
-    background: #f9f9f9;  /* Optional: add a subtle background for visibility */
-    border-radius: 8px;   /* Rounded corners for aesthetics */
+    flex: none;
+    width: 100%;
   }
 
-  /* Target cards */
+  /* Stack target cards vertically */
   .target-set {
-    display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 0 1.5rem;
+    gap: 1.5rem;
   }
 
   .target-card {
+    flex: none;
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    background: #fafafa;  /* Optional background */
-    border-radius: 8px;
   }
 
-  /* Images inside target-card: make them responsive */
-  .target-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  /* Contact & About stacked */
+  .close {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
+  .close .contact {
+    min-width: auto;
+  }
+
+  /* Contact form full width */
+  .contact-form {
+    width: 100%;
+  }
 }
 
-        
+@media (max-width: 480px) {
+  /* Even smaller banner text */
+  .banner h1 {
+    font-size: 1.5rem;
+  }
 
-    </style>
+  .banner h2 {
+    font-size: 1rem;
+  }
+
+  .banner p {
+    font-size: 0.9rem;
+  }
+}
+</style>
 </head>
 <body>
-    <header>
-        <img src="images/logo1.png" alt="">
-        <nav>
-            <ul id="nav">
-                <li><a href="about.html">About us </a></li>
-                <li><a href="involve.html">Get Involved</a></li>
-                <li><a href="support.html">Help & Support</a></li>
-            </ul>
-        </nav>
-        <a href="#" id="ham">&#9776</a>
-        <a href="#" id="cancel">&#10006</a>
-    </header>
+  <header>
+    <div class="container header-inner">
+      <img src="images/logo1.png" alt="HearME Logo" class="logo" />
+      <nav>
+        <ul id="nav" class="nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="involve.html">Get Involved</a></li>
+          <li><a href="support.html" class="active">Help & Support</a></li>
+        </ul>
+        <button id="ham" aria-label="Open Menu">&#9776;</button>
+        <button id="cancel" aria-label="Close Menu">&#10006;</button>
+      </nav>
+    </div>
+  </header>
 
+  <main>
     <section class="banner">
-        <h1>How We Do <br>What We Do</h1>
-        <h2>Learn about our services</h2>
-        <p>We are on a mission to prevent and combat mental illness through mental health education* <br> and fostering community support.</p>
+      <h1>How We Do <br />What We Do</h1>
+      <h2>Learn about our services</h2>
+      <p>
+        We are on a mission to prevent and combat mental illness through mental
+        health education and fostering community support.
+      </p>
     </section>
 
-    <section class="service">
-        <h1>HearMe's Services</h1>
-        <h3>The essence of our services is mental health education.</h3>
-        <p>We tailor our services to the people we are working with, and we are always excited to find flexible and effective solutions for your community’s needs.</p>
-        <div class="outer">
-            <div class="inform">
-                <h4>Weekly mental health education sessions</h4>
-                <p>Join our weekly in-person or virtual sessions crafted to empower individuals of all ages. Gain practical knowledge, 
-                    communication skills, and coping strategies for enhanced mental well-being.
-                </p>
-            </div>
-            <div class="inform">
-                <h4>workshops</h4>
-                <p>Join our intensive one or two-day workshops, focusing on specific mental health challenges. Gain empowerment through knowledge, 
-                    enhanced communication skills, and practical coping strategies.
-                </p>
-            </div>
-            <div class="inform">
-                <h4>Train the trainer</h4>
-                <p>Equip your team with the knowledge, confidence, and skills to deliver mental health education to your 
-                    community. This is the most effective approach to achieve sustainable impact
-                </p>
-            </div>
-        </div>
+    <section class="service container">
+      <h1>HearMe's Services</h1>
+      <h3>The essence of our services is mental health education.</h3>
+      <p>
+        We tailor our services to the people we are working with, and we are
+        always excited to find flexible and effective solutions for your
+        community’s needs.
+      </p>
+      <div class="outer">
+        <article class="inform">
+          <h4>Weekly mental health education sessions</h4>
+          <p>
+            Join our weekly in-person or virtual sessions crafted to empower
+            individuals of all ages. Gain practical knowledge, communication
+            skills, and coping strategies for enhanced mental well-being.
+          </p>
+        </article>
+        <article class="inform">
+          <h4>Workshops</h4>
+          <p>
+            Join our intensive one or two-day workshops, focusing on specific
+            mental health challenges. Gain empowerment through knowledge,
+            enhanced communication skills, and practical coping strategies.
+          </p>
+        </article>
+        <article class="inform">
+          <h4>Conversation facilities</h4>
+          <p>
+            Enhance the mental health of your community by fostering
+            communication skills and coping strategies through weekly
+            conversations facilitated by mental health experts.
+          </p>
+        </article>
+        <article class="inform">
+          <h4>Train the trainer</h4>
+          <p>
+            Equip your team with the knowledge, confidence, and skills to
+            deliver mental health education to your community for sustainable
+            impact.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="target">
-        <h3>Who is Mental Health Education for?</h3>
-        <p>Mental Health Education is for everyone. </p>
-        <div class="target-set">
-            <div class="target-card">
-                <img src="images/img9.png" alt="">
-                <h3>YOUTH</h3>
-                <p>Adolescents, aged 12 to 18, navigate a transformative period marked by not only physiological but also emotional and cognitive shifts.
-                     Mental Health Education equips them with the tools to not only enhance self-regulation but also empowers them to recognize early 
-                     signs of mental health challenges. By doing so, it acts as a proactive measure to address issues before they escalate, fostering 
-                     an environment where implicit stigmas are dismantled. This, in turn, encourages open communication and a willingness to seek help 
-                     when needed.
-                </p>
-            </div>
-            <div class="target-card">
-                <img src="images/img10.png" alt="">
-                <h3>PARENTS</h3>
-                <p>Research on mental health education for parents has consistently shown robust findings. Since the 1980s, studies have revealed 
-                    that parents who engage in mental health education not only enhance their coping skills but also report increased feelings of 
-                    capability, reducing their likelihood of facing mental health challenges. The impact of supporting parents through mental health education 
-                    is especially potent, as the acquired skills and knowledge serve as a positive example for their children. By bolstering parental well-being, 
-                    we contribute to the development of healthy family dynamics and effectively disrupt cycles of stigma across generations.
-                </p>
-            </div>
-            <div class="target-card">
-                <img src="images/img11.png" alt="">
-                <h3>PROFESSIONALS</h3>
-                <p>Research consistently highlights the impact of educating professionals like employers, HR managers, supervisors, teachers, nurses, 
-                    and coaches. After systematic mental health education, they are less prone to burnout, more adept at supporting others, and contribute 
-                    significantly to stigma reduction. These programs correlate with enhanced performance in students, athletes, and employees. Notably,
-                     studies report that every time a company invest $1 in mental health resources, they save $6.
-                </p>
-            </div>
-        </div>
+    <section class="target container">
+      <h1>Who is Mental Health Education for?</h1>
+      <p>Mental Health Education is for everyone.</p>
+      <div class="target-set">
+        <article class="target-card">
+          <img src="images/img9.png" alt="Youth" />
+          <h3>YOUTH</h3>
+          <p>
+            Adolescents, aged 12 to 18, navigate a transformative period marked
+            by physiological, emotional, and cognitive shifts. Mental Health
+            Education equips them with tools to recognize early signs of mental
+            health challenges and fosters an environment that encourages open
+            communication.
+          </p>
+        </article>
+        <article class="target-card">
+          <img src="images/img10.png" alt="Parents" />
+          <h3>PARENTS</h3>
+          <p>
+            Parents who engage in mental health education enhance their coping
+            skills and create healthy family dynamics, serving as positive
+            examples for their children, effectively breaking stigma cycles.
+          </p>
+        </article>
+        <article class="target-card">
+          <img src="images/img11.png" alt="Professionals" />
+          <h3>PROFESSIONALS</h3>
+          <p>
+            Educated professionals reduce burnout and stigma while improving
+            performance and support for others in workplaces, schools, and
+            communities.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="reach">
-        <h1>Get in Touch</h1>
-        <form action="db.php" method="post">
-            <input type="text" name="name" id="" placeholder="Name">
-            <input type="email" name="email" id="" placeholder="Email"><br><br>
-            <textarea name="message" id="" placeholder="Message"></textarea>
-            <input type="submit" value="SUBMIT" class="sub">
-        </form>
+    <section class="reach container">
+      <h1>Get in Touch</h1>
+      <form action="db.php" method="post" class="contact-form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit" class="sub">SUBMIT</button>
+      </form>
     </section>
-    <section class="close">
-        <div class="contact">
-            <h4>CONTACT</h4>
-            <p><strong><i class="fa-solid fa-phone"></i></strong> 1-888-815-4673</p>
-            <p><strong><i class="fa-solid fa-envelope"></i></strong> hearme@gmail.com</p>
-            <p><strong><i class="fa-solid fa-location-dot"></i></strong> PO Box 5, Elkhorn NE68022</p>
-        </div>
-        <div class="contact">
-            <h4>ABOUT</h4>
-            <p><a href="">About us</a></p>
-            <p><a href="">Terms & Conditions</a></p>
-            <p><a href="">Contact us</a></p>
-        </div>
-    </section>
+  </main>
 
-    <footer>
-        <div class="social">
-            <a href=""><i class="fab fa-facebook"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin"></i></a>
-            <a href=""><i class="fab fa-youtube"></i></a>
-        </div>
+  <section class="close container">
+    <div class="contact">
+      <h4>CONTACT</h4>
+      <p><i class="fa-solid fa-phone"></i> +224 0806 544 2168</p>
+      <p><i class="fa-solid fa-envelope"></i> tr6845841@gmail.com</p>
+      <p><i class="fa-solid fa-location-dot"></i> PO Box 5, Elkhorn NE68022</p>
+    </div>
+    <div class="contact">
+      <h4>ABOUT</h4>
+      <p><a href="about.html">About us</a></p>
+      <p><a href="#">Terms & Conditions</a></p>
+      <p><a href="contact.html">Contact us</a></p>
+    </div>
+  </section>
 
-        <p>© HearMe 2025 <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
-    </footer>
+  <footer>
+    <div class="social container">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="container">© HearMe 2025 | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
 </body>
+     <script>const ham = document.getElementById('ham');
+const cancel = document.getElementById('cancel');
+const nav = document.getElementById('nav');
+
+ham.addEventListener('click', () => {
+  nav.classList.add('show');
+  ham.style.display = 'none';
+  cancel.style.display = 'block';
+});
+
+cancel.addEventListener('click', () => {
+  nav.classList.remove('show');
+  ham.style.display = 'block';
+  cancel.style.display = 'none';
+});
+</script>script>
 </html>
