@@ -25,11 +25,6 @@
     align-items: center;
   }
 
-  /* Hide desktop nav and show hamburger menu */
-  nav ul#nav {
-    display: none;
-  }
-
   #ham {
     display: block;
     font-size: 2rem;
@@ -94,7 +89,52 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+  .outer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 1.5rem;
+  }
+
+  .inform {
+    width: 100%;          /* Full width */
+    padding: 20px;        /* More padding for touch comfort */
+    box-sizing: border-box;
+    font-size: 1.1rem;    /* Slightly bigger text */
+    line-height: 1.5;
+    background: #f9f9f9;  /* Optional: add a subtle background for visibility */
+    border-radius: 8px;   /* Rounded corners for aesthetics */
+  }
+
+  /* Target cards */
+  .target-set {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 1.5rem;
+  }
+
+  .target-card {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background: #fafafa;  /* Optional background */
+    border-radius: 8px;
+  }
+
+  /* Images inside target-card: make them responsive */
+  .target-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
 }
+
+        
 
     </style>
 </head>
@@ -145,7 +185,7 @@
     </section>
 
     <section class="target">
-        <h1>Who is Mental Health Education for?</h1>
+        <h3>Who is Mental Health Education for?</h3>
         <p>Mental Health Education is for everyone. </p>
         <div class="target-set">
             <div class="target-card">
