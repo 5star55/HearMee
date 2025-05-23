@@ -806,7 +806,7 @@ html, body {
 
   .content-box {
     width: 100%;
-    margin: 10px 0;
+    margin: 0;
   }
 
   .target-set, .outer {
