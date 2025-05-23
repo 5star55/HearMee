@@ -783,4 +783,103 @@ html, body {
 .content1 {
   margin: 10px 0;
 }
+/* Base: Mobile-first styles apply by default */
+
+/* SMALL DEVICES: phones (portrait and small landscape) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .content-container {
+    margin: 0 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .target-set, .outer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .target-card, .inform {
+    width: 100%;
+  }
+
+  .hero h1, .hero h2 {
+    font-size: 24px;
+  }
+
+  .contact p {
+    font-size: 14px;
+  }
+
+  .quiz a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* MEDIUM DEVICES: tablets and small laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .content-container {
+    margin: 0 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .content-box {
+    width: 48%;
+  }
+
+  .target-set, .outer {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .target-card, .inform {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+}
+
+/* LARGE DEVICES: desktops */
+@media (min-width: 1025px) {
+  .content-container {
+    margin: 0 200px;
+  }
+
+  .content-box {
+    width: 45%;
+  }
+
+  .target-card, .inform {
+    width: 30%;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
